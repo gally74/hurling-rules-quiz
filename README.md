@@ -2,6 +2,8 @@
 
 Static web app for practising GAA Hurling and Gaelic Football referee rules. Multiple quizzes, optional timer, 2 marks per question, 80% to pass.
 
+**Roy Galvin** – GAA, LGFA and Camogie referee.
+
 ## What’s included
 
 | Quiz | Description |
