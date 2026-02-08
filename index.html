@@ -7,73 +7,140 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>GAA Referee Rules – Practice Quizzes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f5f5f5;
-      color: #1a1a1a;
-      padding: 1rem;
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(160deg, #f0f4f8 0%, #e2e8f0 50%, #f1f5f9 100%);
+      color: #0f172a;
+      padding: 1.5rem 1rem 2rem;
       max-width: 480px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.5;
     }
-    h1 { font-size: 1.35rem; margin-bottom: 0.5rem; }
-    p { color: #555; margin-top: 0; }
+    .header {
+      margin-bottom: 1.75rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.02em;
+    }
+    .tagline {
+      color: #64748b;
+      font-size: 0.9375rem;
+      margin: 0;
+      max-width: 36ch;
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
     .card {
       display: block;
-      background: white;
-      border-radius: 8px;
-      padding: 1.25rem;
-      margin-bottom: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      padding: 0;
       text-decoration: none;
       color: inherit;
-      border: 2px solid transparent;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
-    .card:active { opacity: 0.95; }
-    .card.hurling { border-color: #0d47a1; }
-    .card.hurling h2 { color: #0d47a1; margin: 0 0 0.25rem; font-size: 1.1rem; }
-    .card.football { border-color: #0d5c0d; }
-    .card.football h2 { color: #0d5c0d; margin: 0 0 0.25rem; font-size: 1.1rem; }
-    .card small { color: #666; font-size: 0.9rem; }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .card:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .card:focus-visible {
+      outline: 2px solid #0d47a1;
+      outline-offset: 2px;
+    }
+    .card.hurling { border-color: rgba(13, 71, 161, 0.25); }
+    .card.hurling:hover { border-color: rgba(13, 71, 161, 0.45); }
+    .card.hurling h2 { color: #0d47a1; margin: 0 0 0.2rem; font-size: 1.1rem; font-weight: 600; }
+    .card.football { border-color: rgba(13, 92, 13, 0.25); }
+    .card.football:hover { border-color: rgba(13, 92, 13, 0.45); }
+    .card.football h2 { color: #0d5c0d; margin: 0 0 0.2rem; font-size: 1.1rem; font-weight: 600; }
+    .card small { color: #64748b; font-size: 0.875rem; }
+    .card-img-wrap {
+      overflow: hidden;
+      border-radius: 12px 12px 0 0;
+      margin: 0;
+    }
     .card-img {
       width: 100%;
       height: 120px;
       object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 0.75rem;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    .card:hover .card-img {
+      transform: scale(1.02);
+    }
+    .card-body {
+      padding: 1rem 1.25rem 1.15rem;
     }
   </style>
 </head>
 <body>
-  <h1>GAA Referee Rules</h1>
-  <p>Practice quizzes for the official rules tests. 50 questions per year, 2 marks each, 80% to pass.</p>
+  <header class="header">
+    <h1>GAA Referee Rules</h1>
+    <p class="tagline">Practice quizzes for the official rules tests. 50 questions per year, 2 marks each, 80% to pass.</p>
+  </header>
+  <nav class="cards" aria-label="Quiz options">
 
   <a href="quiz.html" class="card hurling">
-    <img src="assets/hurling-card.png" alt="Hurling" class="card-img">
-    <h2>Hurling</h2>
-    <small>Rules test practice</small>
+    <div class="card-img-wrap">
+      <img src="assets/hurling-card.png" alt="Hurling" class="card-img">
+    </div>
+    <div class="card-body">
+      <h2>Hurling</h2>
+      <small>Rules test practice</small>
+    </div>
   </a>
 
   <a href="quiz-football.html" class="card football">
-    <img src="assets/football-card.png" alt="Gaelic Football" class="card-img">
-    <h2>Gaelic Football</h2>
-    <small>Rules test practice</small>
+    <div class="card-img-wrap">
+      <img src="assets/football-card.png" alt="Gaelic Football" class="card-img">
+    </div>
+    <div class="card-body">
+      <h2>Gaelic Football</h2>
+      <small>Rules test practice</small>
+    </div>
   </a>
 
   <a href="quiz-football-frc.html" class="card football">
-    <img src="assets/frc-card.png" alt="FRC Rules Review" class="card-img">
-    <h2>FRC Rules Review</h2>
-    <small>Football Review Committee rules & FAQ quiz</small>
+    <div class="card-img-wrap">
+      <img src="assets/frc-card.png" alt="FRC Rules Review" class="card-img">
+    </div>
+    <div class="card-body">
+      <h2>FRC Rules Review</h2>
+      <small>Football Review Committee rules & FAQ quiz</small>
+    </div>
   </a>
 
   <a href="quiz-hurling-gk.html" class="card hurling">
-    <img src="assets/hurling-gk-card.png" alt="Hurling General Knowledge" class="card-img">
-    <h2>Hurling General Knowledge</h2>
-    <small>Rule-book general knowledge quiz</small>
+    <div class="card-img-wrap">
+      <img src="assets/hurling-gk-card.png" alt="Hurling General Knowledge" class="card-img">
+    </div>
+    <div class="card-body">
+      <h2>Hurling General Knowledge</h2>
+      <small>Rule-book general knowledge quiz</small>
+    </div>
   </a>
+  </nav>
 </body>
 </html>

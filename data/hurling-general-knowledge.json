@@ -142,5 +142,405 @@
       { "key": "d", "text": "The centre of the 20m line" }
     ],
     "correct": "b"
+  },
+  {
+    "id": 13,
+    "question": "When opposing players foul simultaneously, how is play restarted?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "By a free puck to the team that was fouled first" },
+      { "key": "b", "text": "By throwing in the ball" },
+      { "key": "c", "text": "By a free puck from the 20m line" },
+      { "key": "d", "text": "By a free puck where the first foul occurred" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 14,
+    "question": "When a Free Puck is being taken, what is the minimum distance all other players (except the taker) must be from the ball before it is struck?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "13m" },
+      { "key": "b", "text": "20m" },
+      { "key": "c", "text": "7m" },
+      { "key": "d", "text": "45m" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 15,
+    "question": "When a Throw-In after a foul(s) is being taken, what is the minimum distance all other players (except those contesting the throw-in) must be before the throw-in is made?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "13m" },
+      { "key": "b", "text": "20m" },
+      { "key": "c", "text": "7m" },
+      { "key": "d", "text": "45m" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 16,
+    "question": "A Penalty Puck may be struck from which of the following?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Only the centre point of the 20m line" },
+      { "key": "b", "text": "The centre point of the 20m line, or at a point within the semi-circular arc with the ball brought back up to 7m from the 20m line" },
+      { "key": "c", "text": "Anywhere on the 20m line" },
+      { "key": "d", "text": "From the 13m line" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 17,
+    "question": "For a Penalty Puck, where must the ball be struck?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Inside the 20m line" },
+      { "key": "b", "text": "On or outside the 20m line but not inside it (except as allowed in Rule 2.5(b))" },
+      { "key": "c", "text": "From the 13m line" },
+      { "key": "d", "text": "From the goal-line" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 18,
+    "question": "For a Penalty Puck, how many defending players may stand on the goal-line?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Up to five" },
+      { "key": "b", "text": "Only one" },
+      { "key": "c", "text": "Two" },
+      { "key": "d", "text": "None" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 19,
+    "question": "For a Penalty Puck, may the defending player on the goal-line move towards the 20m line before the ball has been struck?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Yes" },
+      { "key": "b", "text": "No" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 20,
+    "question": "For a Penalty Puck, where must all other players (except the taker) be until the ball has been struck?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "At least 13m from the ball" },
+      { "key": "b", "text": "Outside the 20m line and the arc; they shall not cross the 20m line or the arc until the ball has been struck" },
+      { "key": "c", "text": "On the goal-line" },
+      { "key": "d", "text": "At least 20m from the 20m line" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 21,
+    "question": "If a defending player(s) fouls before a Penalty Puck is struck and a goal does not result, what may the referee allow?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "A free puck only" },
+      { "key": "b", "text": "The Penalty Puck to be retaken (the taker has the option of retaking or having a point scored stand)" },
+      { "key": "c", "text": "A throw-in" },
+      { "key": "d", "text": "The goal to be awarded" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 22,
+    "question": "For a Free Puck for a Technical Foul committed inside the large rectangle, awarded on the centre point of the 20m line, how many defending players may stand on the goal-line?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Only one" },
+      { "key": "b", "text": "Up to five" },
+      { "key": "c", "text": "Up to three" },
+      { "key": "d", "text": "None" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 23,
+    "question": "For a free puck awarded on the 20m line for a foul committed outside the large rectangle, where must the players defending the free stand?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "On the goal-line" },
+      { "key": "b", "text": "A minimum of 13m from the point of award" },
+      { "key": "c", "text": "A minimum of 20m from the point of award; they may not move nearer to that point until the ball has been struck" },
+      { "key": "d", "text": "Outside the arc only" }
+    ],
+    "correct": "c"
+  },
+  {
+    "id": 24,
+    "question": "For all free pucks, including penalties, in how many ways may the ball be struck with the hurley?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Only by striking the ball on the ground" },
+      { "key": "b", "text": "Only by lifting with the hurley at the first attempt and striking with the hurley" },
+      { "key": "c", "text": "Either: (i) lift the ball with the hurley at the first attempt and strike it with the hurley, or (ii) strike the ball on the ground" },
+      { "key": "d", "text": "By hand pass only" }
+    ],
+    "correct": "c"
+  },
+  {
+    "id": 25,
+    "question": "According to Rule 2.5, does 'lifting' the ball with the hurley constitute 'striking' the ball?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Yes" },
+      { "key": "b", "text": "No" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 26,
+    "question": "If a player taking a free puck or penalty fails to lift the ball at the first attempt, or fails to strike it with the hurley, what must the player do?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Retake the free or penalty" },
+      { "key": "b", "text": "Strike it on the ground without delay" },
+      { "key": "c", "text": "Throw in the ball" },
+      { "key": "d", "text": "Award the free to the opposing team" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 27,
+    "question": "For a Penalty Puck or other Free Puck awarded on the 20m line, if the taker's initial action causes the ball to marginally cross inside the 20m line, is striking the ball on the ground still allowed?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "No, the free must be retaken" },
+      { "key": "b", "text": "Yes, this is allowed" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 28,
+    "question": "When may a player of either side approach nearer than the distance specified in Rule 2.4 (20m for free pucks, 13m for throw-ins)?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "As soon as the referee blows the whistle" },
+      { "key": "b", "text": "When the ball is lifted" },
+      { "key": "c", "text": "Only when the player taking the Free Puck or Penalty Puck delays" },
+      { "key": "d", "text": "When the ball crosses the 20m line" }
+    ],
+    "correct": "c"
+  },
+  {
+    "id": 29,
+    "question": "When the ball is played over the endline by the team attacking that end or after a score, how is play restarted?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "By a throw-in on the 20m line" },
+      { "key": "b", "text": "By a free puck from the 20m line" },
+      { "key": "c", "text": "By a puck-out from within the small rectangle" },
+      { "key": "d", "text": "By a throw-in at the point where the ball crossed the endline" }
+    ],
+    "correct": "c"
+  },
+  {
+    "id": 30,
+    "question": "For a puck-out, how shall the player taking it initially play the ball?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Strike it on the ground only" },
+      { "key": "b", "text": "Take the ball into the hand" },
+      { "key": "c", "text": "Raise it with the hurley and strike only" },
+      { "key": "d", "text": "Kick it from the hand" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 31,
+    "question": "If the player taking a puck-out misses the stroke, what may they do?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Retake the puck-out from the hand" },
+      { "key": "b", "text": "The ball may be struck on the ground or raised with and struck with the hurley, but not taken into the hand again before striking it" },
+      { "key": "c", "text": "Award a throw-in to the opposition" },
+      { "key": "d", "text": "Take the ball into the hand and retry" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 32,
+    "question": "For a puck-out, where must all players be until the ball has been struck?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Outside the 13m line" },
+      { "key": "b", "text": "Outside the 20m line, except the goalkeeper and the player taking the puck-out (if other than the goalkeeper)" },
+      { "key": "c", "text": "Outside the small rectangle only" },
+      { "key": "d", "text": "Anywhere in their own half" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 33,
+    "question": "For a puck-out, how far must the ball travel before being played by another player of the defending team?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "20m" },
+      { "key": "b", "text": "13m" },
+      { "key": "c", "text": "7m" },
+      { "key": "d", "text": "45m" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 34,
+    "question": "When the ball is played over the endline and outside the goalposts by the team defending that end, how is play restarted?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Puck-out from within the small rectangle" },
+      { "key": "b", "text": "A free puck to the opposing team on the 65m line opposite where the ball crossed the endline" },
+      { "key": "c", "text": "A free puck on the 20m line" },
+      { "key": "d", "text": "A throw-in on the 65m line" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 35,
+    "question": "When a team plays the ball over the sideline, how is play restarted?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "A throw-in 13m from the sideline" },
+      { "key": "b", "text": "A free puck from the ground to the opposing team at the place where the ball crossed the sideline" },
+      { "key": "c", "text": "A free puck on the 65m line" },
+      { "key": "d", "text": "A puck-out" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 36,
+    "question": "When opposing players play the ball simultaneously over the sideline, or when the officials are not sure which team played the ball last, how is play restarted?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "A free puck to the attacking team at the sideline" },
+      { "key": "b", "text": "The Referee, facing the players, throws in the ball between one player from each team, 13m from the sideline and directly infield from where the ball crossed the sideline" },
+      { "key": "c", "text": "A free puck on the 20m line" },
+      { "key": "d", "text": "A puck-out" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 37,
+    "question": "A ball that strikes a sideline or corner flag shall be treated as having done what?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Remaining in play" },
+      { "key": "b", "text": "Crossed the sideline" },
+      { "key": "c", "text": "Crossed the endline" },
+      { "key": "d", "text": "Out for a puck-out" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 38,
+    "question": "For a sideline puck, where shall the player taking it place the ball?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "13m from the sideline" },
+      { "key": "b", "text": "On the sideline at the place indicated by the Line Umpire" },
+      { "key": "c", "text": "On the 20m line" },
+      { "key": "d", "text": "In the small rectangle" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 39,
+    "question": "For a sideline puck or sideline throw-in, what is the minimum distance all other players (except the taker or the two contesting the throw-in) must be from the ball until it is struck or thrown in?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "20m" },
+      { "key": "b", "text": "13m" },
+      { "key": "c", "text": "7m" },
+      { "key": "d", "text": "65m" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 40,
+    "question": "If a player taking a sideline puck fails to strike the ball at the first attempt, what must they do? When may a player from either side approach nearer than 13m?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Retake from the hand; players may approach after the first attempt" },
+      { "key": "b", "text": "Not delay in making a second attempt; only when the player delays the second attempt may a player from either side approach nearer than 13m" },
+      { "key": "c", "text": "Award a throw-in to the opposition; players may approach immediately" },
+      { "key": "d", "text": "Move the ball 13m infield; players may approach when the ball is placed" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 41,
+    "question": "When play is stopped by the Referee in exceptional circumstances to enable a seriously injured player to be treated or removed, and a team was in possession, how does play resume?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Throw-in at the position where play was stopped" },
+      { "key": "b", "text": "A free puck to the team in possession from the position where play was stopped, unless play was stopped inside the opponents' 20m line in which case the free is from the 20m line opposite that point" },
+      { "key": "c", "text": "A free puck to the opposing team" },
+      { "key": "d", "text": "Puck-out" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 42,
+    "question": "From a free puck awarded when play was stopped for a seriously injured player (team in possession), may a score be made directly?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Yes" },
+      { "key": "b", "text": "No" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 43,
+    "question": "When play is stopped for a seriously injured player and neither team is in possession, how does play resume?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "A free puck to the team that had possession last" },
+      { "key": "b", "text": "A throw-in at the position where play was stopped, subject to the provisions in Rule 2.2 Exceptions (v) and (vi)" },
+      { "key": "c", "text": "A free puck from the 20m line" },
+      { "key": "d", "text": "A puck-out" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 44,
+    "question": "If the ball touches any non-player during play (not from a free puck), how is play restarted?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "A free puck to the team that had possession" },
+      { "key": "b", "text": "By throwing in the ball at the place concerned" },
+      { "key": "c", "text": "The free puck is retaken" },
+      { "key": "d", "text": "A puck-out" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 45,
+    "question": "If the ball touches any non-player from a free puck, what happens?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "A throw-in at the place concerned" },
+      { "key": "b", "text": "The free shall be retaken" },
+      { "key": "c", "text": "Play continues" },
+      { "key": "d", "text": "A free to the opposing team" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 46,
+    "question": "If the ball has been prevented from going over a boundary line by a non-player other than the referee, how is it treated?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "As remaining in play; throw-in at the place concerned" },
+      { "key": "b", "text": "As having crossed the line; the referee shall make the appropriate award" },
+      { "key": "c", "text": "The free or puck-out is retaken" },
+      { "key": "d", "text": "As a foul by the attacking team" }
+    ],
+    "correct": "b"
   }
 ]
