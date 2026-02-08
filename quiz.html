@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hurling Rules Test – Practice Quiz</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f5f5f5;
+      color: #1a1a1a;
+    }
+    .header {
+      background: #0d47a1;
+      color: white;
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .header h1 { margin: 0; font-size: 1.1rem; }
+    .timer {
+      font-variant-numeric: tabular-nums;
+      background: rgba(255,255,255,0.2);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+    .timer.warning { background: #f59e0b; color: #1a1a1a; }
+    .timer.danger { background: #dc2626; animation: pulse 1s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: 0.9; } }
+    .container { max-width: 720px; margin: 0 auto; padding: 1rem; }
+    .start-screen, .question-screen, .results-screen { display: none; }
+    .start-screen.active, .question-screen.active, .results-screen.active { display: block; }
+    .start-screen h2 { margin-top: 0; }
+    .start-screen p { color: #555; }
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background: #0d47a1;
+      color: white;
+    }
+    .btn:hover { background: #1565c0; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-green { background: #2e7d32; }
+    .btn-green:hover { background: #388e3c; }
+    .card {
+      background: white;
+      border: 1px solid #0d47a1;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .card h3 { margin: 0 0 0.5rem; font-size: 0.9rem; color: #666; }
+    .question-text { font-size: 1.05rem; line-height: 1.5; margin-bottom: 1rem; }
+    .options { list-style: none; padding: 0; margin: 0; }
+    .options li { margin: 0.5rem 0; }
+    .options label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      cursor: pointer;
+      padding: 0.4rem 0;
+    }
+    .options input { margin-top: 0.25rem; flex-shrink: 0; }
+    .feedback {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      display: none;
+    }
+    .feedback.show { display: block; }
+    .feedback.correct { background: #e8f5e9; border: 1px solid #2e7d32; color: #1b5e20; }
+    .feedback.incorrect { background: #ffebee; border: 1px solid #c62828; color: #b71c1c; }
+    .feedback .correct-answer { margin-top: 0.25rem; font-weight: 600; }
+    .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .q-num { font-size: 0.9rem; color: #666; }
+    .results-screen .score { font-size: 1.5rem; margin: 1rem 0; }
+    .results-screen .score span { font-weight: 700; color: #0d47a1; }
+    .results-screen ul { padding-left: 1.25rem; color: #555; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Hurling Rules Test – Practice</h1>
+    <span class="timer" id="headerTimer" style="display:none;">30:00</span>
+  </div>
+
+  <div class="container">
+    <div class="start-screen active" id="startScreen">
+      <h2>Practice quiz</h2>
+      <p>50 questions per year, 2 marks each. Pass grade 80%. Choose a year and use the 30-minute timer for exam conditions if you like.</p>
+      <p><label>Year: <select id="yearSelect"></select></label></p>
+      <p><label><input type="checkbox" id="useTimer"> Use 30-minute countdown</label></p>
+      <button type="button" class="btn btn-green" id="startBtn">Start quiz</button>
+    </div>
+
+    <div class="question-screen" id="questionScreen">
+      <div class="card">
+        <h3 class="q-num" id="qNum">Question 1 of 38</h3>
+        <p class="question-text" id="questionText"></p>
+        <p id="instruction" style="margin-bottom:0.5rem;font-size:0.95rem;color:#555;">Select one:</p>
+        <ul class="options" id="options"></ul>
+        <div class="feedback" id="feedback">
+          <span id="feedbackMsg"></span>
+          <div class="correct-answer" id="correctAnswer"></div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn" id="prevBtn" style="visibility:hidden;">Previous</button>
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <button type="button" class="btn" id="finishBtn">Finish quiz</button>
+          <button type="button" class="btn btn-green" id="nextBtn">Submit / Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-screen" id="resultsScreen">
+      <h2>Quiz complete</h2>
+      <p class="score" id="scoreLine"></p>
+      <p id="passLine"></p>
+      <p><strong>Questions you got wrong:</strong></p>
+      <ul id="wrongList"></ul>
+      <button type="button" class="btn" id="restartBtn">Start again</button>
+    </div>
+  </div>
+
+  <script type="application/json" id="questions-json">[{"id":1,"question":"In a game which goes to Extra Time a player commits a Noting Infraction during the playing of Extra Time, having previously been noted during the playing of ordinary time. Should the referee:","type":"single","options":[{"key":"a","text":"Award a free puck only"},{"key":"b","text":"Award a free puck and send the player off"},{"key":"c","text":"Award a free puck and Note the player and warn him that a further noting will lead to a Caution (Yellow Card)"},{"key":"d","text":"Award a free puck and Caution the player (Yellow Card)"}],"correct":"d"},{"id":2,"question":"In the event of extra-time being played, how many substitutes (per team) are permitted during the playing of the extra time?","type":"single","options":[{"key":"a","text":"Two"},{"key":"b","text":"Three"},{"key":"c","text":"Five"},{"key":"d","text":"Four"}],"correct":"b"},{"id":3,"question":"In the event of a player receiving an injury which results in bleeding, the Referee obliged in Rule to order the player to leave the field of play for medical attention:","type":"single","options":[{"key":"a","text":"Yes"},{"key":"b","text":"No"}],"correct":"a"},{"id":4,"question":"One team starts a game with only thirteen players and still has only thirteen at the start of the second half. Should the referee?","type":"single","options":[{"key":"a","text":"Continue the game"},{"key":"b","text":"Abandon the game"}],"correct":"a"},{"id":5,"question":"At the commencement of play the referee shall toss a coin for choice of ends in the presence of:","type":"single","options":[{"key":"a","text":"Any two players nominated by team officials"},{"key":"b","text":"A player or team official from each side"},{"key":"c","text":"The team captains"}],"correct":"c"},{"id":6,"question":"For extra time in a club game how many changes are permitted for the start of extra time from the team which finished normal time?","type":"single","options":[{"key":"a","text":"Five"},{"key":"b","text":"Any 15 may start extra time (except those sent off during normal time)"},{"key":"c","text":"Three"},{"key":"d","text":"None"},{"key":"e","text":"One"}],"correct":"b"},{"id":7,"question":"In Inter-County games all substitutions must be from players on the list submitted to the Referee","type":"single","options":[{"key":"a","text":"No"},{"key":"b","text":"Yes"}],"correct":"b"},{"id":8,"question":"In the event of a player refusing to comply with the Referee's instruction to remove or make safe an item of equipment, dress or jewellery which could cause injury, the Referee must","type":"single","options":[{"key":"a","text":"Order off (Red Card) the player"},{"key":"b","text":"Instruct that the player is substituted"},{"key":"c","text":"Ignore the situation"},{"key":"d","text":"Caution (Yellow Card) the player"}],"correct":"d"},{"id":9,"question":"If the ball is prevented from going over the goal-line by anyone other than a player or the Referee, does the Referee;","type":"single","options":[{"key":"a","text":"Award a 65"},{"key":"b","text":"Award a free puck"},{"key":"c","text":"Play On"},{"key":"d","text":"Award a goal"},{"key":"e","text":"Award a throw-in"}],"correct":"d"},{"id":10,"question":"The Referee's Report should contain the names of the umpires and linesmen.","type":"single","options":[{"key":"a","text":"Yes"},{"key":"b","text":"No"}],"correct":"a"},{"id":11,"question":"Following a game which ends in a draw and extra time is being played one team makes five changes for the start of extra time from the team which finished normal time. Is this permitted?","type":"single","options":[{"key":"a","text":"No"},{"key":"b","text":"Yes"}],"correct":"b"},{"id":12,"question":"If the referee blows his whistle for a free to be taken and then realises that he has made a mistake, is he permitted in Rule to alter his decision?","type":"single","options":[{"key":"a","text":"No"},{"key":"b","text":"Yes"}],"correct":"a"},{"id":13,"question":"Prior to the start of a game two players from opposing sides attempt to strike each other with the hand. What action must the referee take? (Note: The referee has received the team sheets).","type":"single","options":[{"key":"a","text":"Caution (Yellow Card) both players"},{"key":"b","text":"Take no action but include in his Referee's Report"},{"key":"c","text":"Order both off (Red Card) and allow substitutes"},{"key":"d","text":"Take no action"},{"key":"e","text":"Order both off (Red Card) and do not allow substitutes"}],"correct":"e"},{"id":14,"question":"The Referee has the authority to over-rule the agreed decision of Umpires.","type":"single","options":[{"key":"a","text":"No"},{"key":"b","text":"Yes"}],"correct":"b"},{"id":15,"question":"A player deliberately advances the ball from the place at which a free-puck is awarded. Must the referee;","type":"single","options":[{"key":"a","text":"Order the free to be retaken from the correct position"},{"key":"b","text":"Cancel the free and throw in the ball where the foul occurred"},{"key":"c","text":"Allow the free to be taken"}],"correct":"b"},{"id":16,"question":"What should the referee do if an umpire in a club match prevents the ball from crossing the goal-line by kicking it away?","type":"single","options":[{"key":"a","text":"Throw-in the ball on the 20m line"},{"key":"b","text":"Award a goal"},{"key":"c","text":"Award penalty"}],"correct":"b"},{"id":17,"question":"Which of the following are immediate ordering off (Red Card) infractions? (Please select all).","type":"multiple","options":[{"key":"a","text":"To assault an opposing Team Official"},{"key":"b","text":"To use the hurley in a careless manner"},{"key":"c","text":"To spit at an opponent"},{"key":"d","text":"To throw the hurley in a manner which constitutes a danger to another player"},{"key":"e","text":"To use threatening language to a Sideline Official"},{"key":"f","text":"To contribute to a melee"}],"correct":["a","c","e","f"]},{"id":18,"question":"The correct award for holding an opponent is?","type":"single","options":[{"key":"a","text":"Caution (Yellow Card)"},{"key":"b","text":"Note"},{"key":"c","text":"Free only"},{"key":"d","text":"Order off (Red Card)"}],"correct":"b"},{"id":19,"question":"At the start of the game all players with the exception of the 4 players (2 from each side) at the throw in must be;","type":"single","options":[{"key":"a","text":"Behind the 65 metre line and in their respective positions"},{"key":"b","text":"13 metres from the throw in"},{"key":"c","text":"Behind the 45 metre line and in their respective positions"}],"correct":"c"},{"id":20,"question":"An opposing team official is struck by a player during a game. Must the referee;","type":"single","options":[{"key":"a","text":"Caution (Yellow Card) the player and order the official from the sideline"},{"key":"b","text":"Take no action but report the incident"},{"key":"c","text":"Take no action"},{"key":"d","text":"Order off (Red Card) the player"}],"correct":"d"},{"id":21,"question":"A free puck is awarded to the attacking team for a Technical Foul inside the large rectangle. How many defending players are permitted on the goal-line?","type":"single","options":[{"key":"a","text":"Five"},{"key":"b","text":"Three"},{"key":"c","text":"As many as the defending team wishes"},{"key":"d","text":"One"},{"key":"e","text":"Seven"}],"correct":"a"},{"id":221,"question":"What is the penalty for striking with a hurley with minimal force?","type":"single","options":[{"key":"a","text":"Order off (Red card)"},{"key":"b","text":"Note"},{"key":"c","text":"Free only"},{"key":"d","text":"Caution (Yellow card)"}],"correct":"a"},{"id":222,"question":"What is the penalty for holding an opponent with the hand?","type":"single","options":[{"key":"a","text":"Order off (Red card)"},{"key":"b","text":"Note"},{"key":"c","text":"Free only"},{"key":"d","text":"Caution (Yellow card)"}],"correct":"b"},{"id":223,"question":"What is the penalty for pushing an opponent with the hurley?","type":"single","options":[{"key":"a","text":"Order off (Red card)"},{"key":"b","text":"Note"},{"key":"c","text":"Free only"},{"key":"d","text":"Caution (Yellow card)"}],"correct":"c"},{"id":224,"question":"What is the penalty for using the hurley in a careless manner?","type":"single","options":[{"key":"a","text":"Order off (Red card)"},{"key":"b","text":"Note"},{"key":"c","text":"Free only"},{"key":"d","text":"Caution (Yellow card)"}],"correct":"d"},{"id":23,"question":"At a penalty the goalkeeper moves forward a metre in front of the goal-line before the ball is struck. He saves the penalty. Should the referee;","type":"single","options":[{"key":"a","text":"Order the penalty to be retaken"},{"key":"b","text": "Allow play continue"}],"correct":"a"},{"id":24,"question":"The referee allows an advantage to a player, who is fouled approx 30 metres from goal, who carries on and, after four seconds, has a shot at goal, which strikes the post and rebounds into play. What should the Referee award?","type":"single","options":[{"key":"a","text":"65m puck"},{"key":"b","text":"Play on"},{"key":"c","text":"Free puck to the attacking team at the point at which the player was fouled"},{"key":"d","text":"Free puck to the attacking team on the 20m line"}],"correct":"c"},{"id":25,"question":"If the ball accidentally strikes the physio who is treating an injured player during play must the referee;","type":"single","options":[{"key":"a","text":"Stop the game and award a throw-in at the point where the ball struck the physio"},{"key":"b","text":"Allow play to continue"},{"key":"c","text":"Award a free puck against the injured player's team at the point where the ball struck the physio"},{"key":"d","text":"Award a free puck to the side which played the ball last prior to it striking the physio"}],"correct":"a"},{"id":26,"question":"A player who suffers an injury involving bleeding refuses to leave the field of play for attention. Must the referee;","type":"single","options":[{"key":"a","text":"Have a word with the team captain"},{"key":"b","text":"Caution the player (Yellow Card)"},{"key":"c","text":"Allow the doctor onto the field to attend him"}],"correct":"b"},{"id":27,"question":"A player \"accidentally\" trips an opponent. What is the correct award?","type":"single","options":[{"key":"a","text":"Free puck only to the team of the player who was tripped"},{"key":"b","text":"Free puck and noting"},{"key":"c","text":"Play On"},{"key":"d","text":"Free puck and caution (Yellow Card)"},{"key":"e","text":"Free puck and Red Card"}],"correct":"a"},{"id":28,"question":"Which of the following is not a \"free only\" infraction?","type":"single","options":[{"key":"a","text":"To charge (in a manner otherwise permissible) the goalkeeper in the small rectangle"},{"key":"b","text":"To hold an opponent with the hands"},{"key":"c","text":"To push an opponent with the hands"},{"key":"d","text":"While in possession of the ball to charge an opponent"}],"correct":"b"},{"id":29,"question":"A player challenges the referee's authority. Must the referee;","type":"single","options":[{"key":"a","text":"Order the player off (Red Card)"},{"key":"b","text":"Caution the player (Yellow Card)"},{"key":"c","text":"Note the offender"}],"correct":"b"},{"id":30,"question":"Which of the following is an ordering off (Red Card) infraction?","type":"single","options":[{"key":"a","text":"Contribute to a melee"},{"key":"b","text":"To use the hurley in a careless manner"},{"key":"c","text":"To threaten an opponent"}],"correct":"a"},{"id":31,"question":"Which of the following is a noting infraction?","type":"single","options":[{"key":"a","text":"To pull down an opponent"},{"key":"b","text":"To hold an opponent with the hand"},{"key":"c","text":"To threaten a team-mate"},{"key":"d","text":"To push an opponent with the hand"}],"correct":"b"},{"id":32,"question":"A player challenges the referee's authority. Must the referee;","type":"single","options":[{"key":"a","text":"Order off the player (Red Card)"},{"key":"b","text":"Caution the player (Yellow Card)"},{"key":"c","text":"Note the player"},{"key":"d","text":"Ignore the player"}],"correct":"b"},{"id":33,"question":"A player is awarded a free puck inside the 20m line and retaliates before it is taken. What is the correct award?","type":"single","options":[{"key":"a","text":"A throw in on the 20m line opposite where the foul occurs"},{"key":"b","text":"A throw in on the 13m line opposite where the foul occurs"},{"key":"c","text":"A throw in where the foul occurs"}],"correct":"a"},{"id":34,"question":"If a ball accidentally strikes the referee during play must he;","type":"single","options":[{"key":"a","text":"Allow play to continue"},{"key":"b","text":"Stop the game and award a throw-in at the point where the ball struck him"},{"key":"c","text":"Award a free to the team which had possession"}],"correct":"b"},{"id":35,"question":"For a player taking the puck out and, having missed the stroke, to take the ball into his hand a second time before striking it.","type":"single","options":[{"key":"a","text":"Allow play to continue"},{"key":"b","text":"Cancel the puck out, and throw in the ball on defenders' 20m line"},{"key":"c","text":"A free is awarded from the 20m line"}],"correct":"b"},{"id":36,"question":"How long may a player hold the ball in his hands?","type":"single","options":[{"key":"a","text":"4 steps or no longer than the time needed to take 4 steps"},{"key":"b","text":"10 secs"},{"key":"c","text":"4 secs"}],"correct":"a"},{"id":37,"question":"The correct award for pulling the faceguard of an opponent's helmet is?","type":"single","options":[{"key":"a","text":"Order Off (Red Card)"},{"key":"b","text":"Free only"},{"key":"c","text":"Caution (Yellow Card)"},{"key":"d","text":"Note"}],"correct":"a"},{"id":38,"question":"Which of the following is not an ordering off (Red Card) infraction?","type":"single","options":[{"key":"a","text":"To spit at an opponent"},{"key":"b","text":"To behave in any way which is dangerous to an opponent"},{"key":"c","text":"To kick an opponent with minimal force"},{"key":"d","text":"To use provocative language to an opponent"}],"correct":"d"},{"id":39,"question":"A defending player, inside the large rectangle but outside the small rectangle overcarries the ball. Must the referee award;","type":"single","options":[{"key":"a","text":"A penalty"},{"key":"b","text":"A free puck to the attacking team from the centre of the 20m line"},{"key":"c","text":"A free puck to the attacking team from the 20m line opposite where the foul occurred"}],"correct":"b"},{"id":40,"question":"A defender plays the ball before it has travelled 13m from a puck-out. Must the referee","type":"single","options":[{"key":"a","text":"Cancel the puck-out and throw the ball in on the 20m line in front of the scoring space"},{"key":"b","text":"Cancel the puck-out and award a 20m free against the defender"},{"key":"c","text":"Order the puck-out to be retaken"}],"correct":"a"},{"id":41,"question":"A player who fails to comply with a Referee's instruction to wear a helmet with a facial guard should be:","type":"single","options":[{"key":"a","text":"Issued with a straight Red Card"},{"key":"b","text":"Warned"},{"key":"c","text":"Ignored"},{"key":"d","text":"Initially cautioned and ordered off if he persists"}],"correct":"d"},{"id":42,"question":"Which of the following are Cautionable (Yellow Card) Infractions? (Please tick all)","type":"multiple","options":[{"key":"a","text":"To pull down an opponent"},{"key":"b","text":"To charge an opponent to the back"},{"key":"c","text":"To use the hurley to obstruct an opponent"},{"key":"d","text":"To trip an opponent with the hand"},{"key":"e","text":"To spit at an opponent"},{"key":"f","text":"To engage in any other form of rough play"}],"correct":["a","d","f"]},{"id":43,"question":"To take a puck out from outside the small rectangle.","type":"single","options":[{"key":"a","text":"Award a 65m free"},{"key":"b","text":"Cancel the Puck out and throw in the ball on 20m line"},{"key":"c","text":"Allow play to continue"}],"correct":"b"},{"id":44,"question":"A free puck is awarded to the attacking team for an Aggressive Foul inside the large rectangle. How many defending players are permitted on the goal-line?","type":"single","options":[{"key":"a","text":"Seven"},{"key":"b","text":"As many as the defending team wishes"},{"key":"c","text":"Five"},{"key":"d","text":"Three"},{"key":"e","text":"One"}],"correct":"e"},{"id":45,"question":"What must the referee award when a player is fouled after playing the ball which lands over the end-line?","type":"single","options":[{"key":"a","text":"A free from where the ball was played"},{"key":"b","text":"A free on the 20m line opposite where the ball crossed the end-line"},{"key":"c","text":"A wide ball"},{"key":"d","text":"A free on the 20m line where the ball crossed the 20m line"}],"correct":"b"},{"id":46,"question":"What must the referee award when a player is fouled after playing the ball which lands inside the 20m line?","type":"single","options":[{"key":"a","text":"A free from where the ball was played"},{"key":"b","text":"A free on the 20m line opposite where the ball landed"},{"key":"c","text":"A free on the 20m line where the ball crossed the 20m line"}],"correct":"c"},{"id":47,"question":"Which of the following scenarios result in a player being sent off (Red Card)? (Please select all).","type":"multiple","options":[{"key":"a","text":"Deliberately pulling down an opponent, having previously been cautioned (Yellow Card)"},{"key":"b","text":"Holding an opponent with the hands, having previously been cautioned (Yellow Card) for \"Rough Play\""},{"key":"c","text":"Holding an opponent with the hands, having previously been cautioned (Yellow Card) for two \"Noting Infractions\""},{"key":"d","text":"Kicking a team-mate"},{"key":"e","text":"Accidentally tripping an opponent, having previously been cautioned (Yellow Card)"}],"correct":["a","c","d"]},{"id":48,"question":"The ball having been played by a defending player is prevented from crossing the end-line by striking an Umpire. What is the correct award?","type":"single","options":[{"key":"a","text":"65m puck"},{"key":"b","text":"Play on"},{"key":"c","text":"Throw-in the ball on the 20m line"}],"correct":"a"},{"id":49,"question":"What should the referee do when the ball strikes him and in so-doing is prevented from crossing the goal-line?","type":"single","options":[{"key":"a","text":"Throw-in the ball on the 20m line"},{"key":"b","text":"Award a goal"},{"key":"c","text":"Allow play to continue"},{"key":"d","text":"Award a penalty"}],"correct":"a"},{"id":50,"question":"If a ball accidentally strikes the referee from a free must he;","type":"single","options":[{"key":"a","text":"Allow play to continue"},{"key":"b","text":"Stop the game and award a throw-in at the point where the ball struck him"},{"key":"c","text":"Allow the free puck to be retaken"}],"correct":"c"}]</script>
+  <script>
+    const AVAILABLE_YEARS = ['2026'];  // Add more years when you add data/questions-YYYY.json (e.g. '2025', '2024')
+
+    let questions = [];
+    let currentIndex = 0;
+    let answers = {};
+    let submitted = {};
+    let timerInterval = null;
+    let totalSeconds = 30 * 60;
+    let remainingSeconds = totalSeconds;
+    let selectedYear = '2026';
+
+    function initYearSelect() {
+      const sel = document.getElementById('yearSelect');
+      sel.innerHTML = '';
+      AVAILABLE_YEARS.forEach(function(y) {
+        const opt = document.createElement('option');
+        opt.value = y;
+        opt.textContent = y;
+        sel.appendChild(opt);
+      });
+    }
+
+    async function loadQuestions(year) {
+      selectedYear = year || document.getElementById('yearSelect').value;
+      try {
+        const res = await fetch('data/questions-' + selectedYear + '.json');
+        if (!res.ok) throw new Error('Not found');
+        questions = await res.json();
+      } catch (e) {
+        const el = document.getElementById('questions-json');
+        if (el && selectedYear === '2026') questions = JSON.parse(el.textContent);
+        else questions = [];
+      }
+      if (!questions || questions.length === 0) {
+        alert('No questions loaded for ' + selectedYear + '. Add data/questions-' + selectedYear + '.json or check the file.');
+        return false;
+      }
+      return true;
+    }
+
+    function shuffle(a) {
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return m + ':' + String(s).padStart(2, '0');
+    }
+
+    function startTimer() {
+      remainingSeconds = totalSeconds;
+      const el = document.getElementById('headerTimer');
+      el.style.display = 'inline-block';
+      el.textContent = formatTime(remainingSeconds);
+      el.classList.remove('warning', 'danger');
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(function() {
+        remainingSeconds--;
+        el.textContent = formatTime(remainingSeconds);
+        el.classList.remove('warning', 'danger');
+        if (remainingSeconds <= 60) el.classList.add('danger');
+        else if (remainingSeconds <= 300) el.classList.add('warning');
+        if (remainingSeconds <= 0) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
+      }, 1000);
+    }
+
+    function renderQuestion() {
+      const q = questions[currentIndex];
+      if (!q) return;
+      document.getElementById('qNum').textContent = 'Question ' + (currentIndex + 1) + ' of ' + questions.length;
+      document.getElementById('questionText').textContent = q.question;
+      document.getElementById('instruction').textContent = q.type === 'multiple' ? 'Select one or more:' : 'Select one:';
+      const opts = document.getElementById('options');
+      opts.innerHTML = '';
+      const inputType = q.type === 'multiple' ? 'checkbox' : 'radio';
+      const name = 'q' + q.id;
+      q.options.forEach(function(opt) {
+        const li = document.createElement('li');
+        const id = name + '_' + opt.key;
+        const input = document.createElement('input');
+        input.type = inputType;
+        input.name = name;
+        input.value = opt.key;
+        input.id = id;
+        if (answers[q.id] && (Array.isArray(answers[q.id]) ? answers[q.id].includes(opt.key) : answers[q.id] === opt.key)) {
+          input.checked = true;
+        }
+        const label = document.createElement('label');
+        label.htmlFor = id;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(opt.key + '. ' + opt.text));
+        li.appendChild(label);
+        opts.appendChild(li);
+      });
+      const fb = document.getElementById('feedback');
+      fb.classList.remove('show', 'correct', 'incorrect');
+      document.getElementById('nextBtn').textContent = submitted[q.id] ? 'Next' : 'Submit';
+      document.getElementById('prevBtn').style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+    }
+
+    function getSelected(q) {
+      const name = 'q' + q.id;
+      if (q.type === 'multiple') {
+        const nodes = document.querySelectorAll('input[name="' + name + '"]:checked');
+        return Array.from(nodes).map(function(n) { return n.value; }).sort();
+      }
+      const node = document.querySelector('input[name="' + name + '"]:checked');
+      return node ? node.value : null;
+    }
+
+    function arraysEqual(a, b) {
+      if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return false;
+      const sa = [...a].sort();
+      const sb = [...b].sort();
+      return sa.every(function(v, i) { return v === sb[i]; });
+    }
+
+    function checkAnswer() {
+      const q = questions[currentIndex];
+      const selected = getSelected(q);
+      if (q.type === 'multiple' && (!selected || selected.length === 0)) return;
+      if (q.type === 'single' && !selected) return;
+      answers[q.id] = selected;
+      const correct = Array.isArray(q.correct) ? q.correct : [q.correct];
+      const correctSorted = [...correct].sort();
+      const isCorrect = q.type === 'multiple' ? arraysEqual(selected, correctSorted) : (selected === q.correct);
+      submitted[q.id] = true;
+      const fb = document.getElementById('feedback');
+      fb.classList.add('show', isCorrect ? 'correct' : 'incorrect');
+      document.getElementById('feedbackMsg').textContent = isCorrect ? 'Your answer is correct.' : 'Your answer is incorrect.';
+      const correctText = Array.isArray(q.correct)
+        ? q.correct.map(function(k) {
+            const o = q.options.find(function(x) { return x.key === k; });
+            return o ? o.key + '. ' + o.text : k;
+          }).join('; ')
+        : (function() {
+            const o = q.options.find(function(x) { return x.key === q.correct; });
+            return o ? o.key + '. ' + o.text : q.correct;
+          })();
+      document.getElementById('correctAnswer').textContent = 'The correct answer is: ' + correctText;
+      document.getElementById('nextBtn').textContent = 'Next';
+    }
+
+    function goNext() {
+      const q = questions[currentIndex];
+      if (!submitted[q.id]) {
+        checkAnswer();
+        return;
+      }
+      if (currentIndex < questions.length - 1) {
+        currentIndex++;
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function goPrev() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+      }
+    }
+
+    function showResults(early) {
+      if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+      document.getElementById('headerTimer').style.display = 'none';
+      document.getElementById('questionScreen').classList.remove('active');
+      document.getElementById('resultsScreen').classList.add('active');
+      let correctCount = 0;
+      const wrong = [];
+      const answeredOnly = !!early;
+      questions.forEach(function(q) {
+        if (answeredOnly && !submitted[q.id]) return;
+        const selected = answers[q.id];
+        const correct = Array.isArray(q.correct) ? q.correct : [q.correct];
+        const correctSorted = [...correct].sort();
+        const isCorrect = q.type === 'multiple'
+          ? arraysEqual(selected || [], correctSorted)
+          : (selected === q.correct);
+        if (isCorrect) correctCount++;
+        else wrong.push({ num: wrong.length + 1, q: q, selected: selected });
+      });
+      const totalAnswered = answeredOnly ? Object.keys(submitted).length : questions.length;
+      const totalMarks = totalAnswered * 2;
+      const marks = correctCount * 2;
+      const pct = totalMarks ? Math.round((marks / totalMarks) * 10000) / 100 : 0;
+      let scoreText = 'Score: <span>' + marks + '</span> out of ' + totalMarks + ' (' + pct + '%)';
+      if (answeredOnly && totalAnswered < questions.length) {
+        scoreText = 'You answered ' + totalAnswered + ' of ' + questions.length + ' questions.<br>' + scoreText;
+      }
+      document.getElementById('scoreLine').innerHTML = scoreText;
+      document.getElementById('passLine').textContent = pct >= 80 ? 'Pass (80% required).' : 'Below pass grade (80% required).';
+      const ul = document.getElementById('wrongList');
+      ul.innerHTML = '';
+      if (wrong.length === 0) {
+        ul.innerHTML = '<li>None</li>';
+      } else {
+        wrong.forEach(function(w) {
+          const li = document.createElement('li');
+          li.textContent = 'Q' + w.q.id + ': ' + w.q.question.substring(0, 60) + '...';
+          ul.appendChild(li);
+        });
+      }
+    }
+
+    initYearSelect();
+
+    document.getElementById('startBtn').addEventListener('click', async function() {
+      const year = document.getElementById('yearSelect').value;
+      if (!await loadQuestions(year)) return;
+      questions = shuffle(questions);
+      currentIndex = 0;
+      answers = {};
+      submitted = {};
+      document.getElementById('startScreen').classList.remove('active');
+      document.getElementById('resultsScreen').classList.remove('active');
+      document.getElementById('questionScreen').classList.add('active');
+      if (document.getElementById('useTimer').checked) startTimer();
+      renderQuestion();
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', goNext);
+    document.getElementById('prevBtn').addEventListener('click', goPrev);
+    document.getElementById('finishBtn').addEventListener('click', function() {
+      showResults(true);
+    });
+    document.getElementById('restartBtn').addEventListener('click', function() {
+      document.getElementById('resultsScreen').classList.remove('active');
+      document.getElementById('startScreen').classList.add('active');
+    });
+  </script>
+</body>
+</html>

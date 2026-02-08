@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hurling Rules Test – 30 min</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+    }
+    .timer {
+      font-size: clamp(3rem, 12vw, 6rem);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.05em;
+    }
+    .timer.warning { color: #f59e0b; }
+    .timer.danger { color: #ef4444; animation: pulse 1s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: 0.85; } }
+    .label { font-size: 1rem; opacity: 0.8; margin-top: 0.5rem; }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+    button:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <div class="timer" id="display">30:00</div>
+  <div class="label" id="label">Hurling Rules Test – 30 minutes</div>
+  <button type="button" id="start">Start</button>
+
+  <script>
+    const display = document.getElementById('display');
+    const label = document.getElementById('label');
+    const startBtn = document.getElementById('start');
+    const TOTAL_SECONDS = 30 * 60;
+    let remaining = TOTAL_SECONDS;
+    let intervalId = null;
+
+    function format(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return m + ':' + String(s).padStart(2, '0');
+    }
+
+    function tick() {
+      remaining--;
+      display.textContent = format(remaining);
+      display.classList.remove('warning', 'danger');
+      if (remaining <= 60) display.classList.add('danger');
+      else if (remaining <= 300) display.classList.add('warning');
+      if (remaining <= 0) {
+        clearInterval(intervalId);
+        intervalId = null;
+        display.textContent = '0:00';
+        label.textContent = 'Time’s up';
+      }
+    }
+
+    startBtn.addEventListener('click', function () {
+      if (intervalId) return;
+      remaining = TOTAL_SECONDS;
+      display.textContent = format(remaining);
+      display.classList.remove('warning', 'danger');
+      label.textContent = 'Time remaining';
+      intervalId = setInterval(tick, 1000);
+      startBtn.textContent = 'Running…';
+      startBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>

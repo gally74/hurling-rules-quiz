@@ -1,0 +1,616 @@
+[
+  {
+    "id": 1,
+    "question": "In a game which goes to Extra Time a player commits a Noting Infraction during the playing of Extra Time, having previously been noted during the playing of ordinary time. Should the referee:",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Award a free puck only" },
+      { "key": "b", "text": "Award a free puck and send the player off" },
+      { "key": "c", "text": "Award a free puck and Note the player and warn him that a further noting will lead to a Caution (Yellow Card)" },
+      { "key": "d", "text": "Award a free puck and Caution the player (Yellow Card)" }
+    ],
+    "correct": "d"
+  },
+  {
+    "id": 2,
+    "question": "In the event of extra-time being played, how many substitutes (per team) are permitted during the playing of the extra time?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Two" },
+      { "key": "b", "text": "Three" },
+      { "key": "c", "text": "Five" },
+      { "key": "d", "text": "Four" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 3,
+    "question": "In the event of a player receiving an injury which results in bleeding, the Referee obliged in Rule to order the player to leave the field of play for medical attention:",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Yes" },
+      { "key": "b", "text": "No" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 4,
+    "question": "One team starts a game with only thirteen players and still has only thirteen at the start of the second half. Should the referee?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Continue the game" },
+      { "key": "b", "text": "Abandon the game" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 5,
+    "question": "At the commencement of play the referee shall toss a coin for choice of ends in the presence of:",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Any two players nominated by team officials" },
+      { "key": "b", "text": "A player or team official from each side" },
+      { "key": "c", "text": "The team captains" }
+    ],
+    "correct": "c"
+  },
+  {
+    "id": 6,
+    "question": "For extra time in a club game how many changes are permitted for the start of extra time from the team which finished normal time?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Five" },
+      { "key": "b", "text": "Any 15 may start extra time (except those sent off during normal time)" },
+      { "key": "c", "text": "Three" },
+      { "key": "d", "text": "None" },
+      { "key": "e", "text": "One" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 7,
+    "question": "In Inter-County games all substitutions must be from players on the list submitted to the Referee",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "No" },
+      { "key": "b", "text": "Yes" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 8,
+    "question": "In the event of a player refusing to comply with the Referee's instruction to remove or make safe an item of equipment, dress or jewellery which could cause injury, the Referee must",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Order off (Red Card) the player" },
+      { "key": "b", "text": "Instruct that the player is substituted" },
+      { "key": "c", "text": "Ignore the situation" },
+      { "key": "d", "text": "Caution (Yellow Card) the player" }
+    ],
+    "correct": "d"
+  },
+  {
+    "id": 9,
+    "question": "If the ball is prevented from going over the goal-line by anyone other than a player or the Referee, does the Referee;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Award a 65" },
+      { "key": "b", "text": "Award a free puck" },
+      { "key": "c", "text": "Play On" },
+      { "key": "d", "text": "Award a goal" },
+      { "key": "e", "text": "Award a throw-in" }
+    ],
+    "correct": "d"
+  },
+  {
+    "id": 10,
+    "question": "The Referee's Report should contain the names of the umpires and linesmen.",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Yes" },
+      { "key": "b", "text": "No" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 11,
+    "question": "Following a game which ends in a draw and extra time is being played one team makes five changes for the start of extra time from the team which finished normal time. Is this permitted?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "No" },
+      { "key": "b", "text": "Yes" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 12,
+    "question": "If the referee blows his whistle for a free to be taken and then realises that he has made a mistake, is he permitted in Rule to alter his decision?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "No" },
+      { "key": "b", "text": "Yes" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 13,
+    "question": "Prior to the start of a game two players from opposing sides attempt to strike each other with the hand. What action must the referee take? (Note: The referee has received the team sheets).",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Caution (Yellow Card) both players" },
+      { "key": "b", "text": "Take no action but include in his Referee's Report" },
+      { "key": "c", "text": "Order both off (Red Card) and allow substitutes" },
+      { "key": "d", "text": "Take no action" },
+      { "key": "e", "text": "Order both off (Red Card) and do not allow substitutes" }
+    ],
+    "correct": "e"
+  },
+  {
+    "id": 14,
+    "question": "The Referee has the authority to over-rule the agreed decision of Umpires.",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "No" },
+      { "key": "b", "text": "Yes" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 15,
+    "question": "A player deliberately advances the ball from the place at which a free-puck is awarded. Must the referee;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Order the free to be retaken from the correct position" },
+      { "key": "b", "text": "Cancel the free and throw in the ball where the foul occurred" },
+      { "key": "c", "text": "Allow the free to be taken" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 16,
+    "question": "What should the referee do if an umpire in a club match prevents the ball from crossing the goal-line by kicking it away?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Throw-in the ball on the 20m line" },
+      { "key": "b", "text": "Award a goal" },
+      { "key": "c", "text": "Award penalty" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 17,
+    "question": "Which of the following are immediate ordering off (Red Card) infractions? (Please select all).",
+    "type": "multiple",
+    "options": [
+      { "key": "a", "text": "To assault an opposing Team Official" },
+      { "key": "b", "text": "To use the hurley in a careless manner" },
+      { "key": "c", "text": "To spit at an opponent" },
+      { "key": "d", "text": "To throw the hurley in a manner which constitutes a danger to another player" },
+      { "key": "e", "text": "To use threatening language to a Sideline Official" },
+      { "key": "f", "text": "To contribute to a melee" }
+    ],
+    "correct": ["a", "c", "e", "f"]
+  },
+  {
+    "id": 18,
+    "question": "The correct award for holding an opponent is?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Caution (Yellow Card)" },
+      { "key": "b", "text": "Note" },
+      { "key": "c", "text": "Free only" },
+      { "key": "d", "text": "Order off (Red Card)" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 19,
+    "question": "At the start of the game all players with the exception of the 4 players (2 from each side) at the throw in must be;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Behind the 65 metre line and in their respective positions" },
+      { "key": "b", "text": "13 metres from the throw in" },
+      { "key": "c", "text": "Behind the 45 metre line and in their respective positions" }
+    ],
+    "correct": "c"
+  },
+  {
+    "id": 20,
+    "question": "An opposing team official is struck by a player during a game. Must the referee;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Caution (Yellow Card) the player and order the official from the sideline" },
+      { "key": "b", "text": "Take no action but report the incident" },
+      { "key": "c", "text": "Take no action" },
+      { "key": "d", "text": "Order off (Red Card) the player" }
+    ],
+    "correct": "d"
+  },
+  {
+    "id": 21,
+    "question": "A free puck is awarded to the attacking team for a Technical Foul inside the large rectangle. How many defending players are permitted on the goal-line?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Five" },
+      { "key": "b", "text": "Three" },
+      { "key": "c", "text": "As many as the defending team wishes" },
+      { "key": "d", "text": "One" },
+      { "key": "e", "text": "Seven" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 221,
+    "question": "What is the penalty for striking with a hurley with minimal force?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Order off (Red card)" },
+      { "key": "b", "text": "Note" },
+      { "key": "c", "text": "Free only" },
+      { "key": "d", "text": "Caution (Yellow card)" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 222,
+    "question": "What is the penalty for holding an opponent with the hand?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Order off (Red card)" },
+      { "key": "b", "text": "Note" },
+      { "key": "c", "text": "Free only" },
+      { "key": "d", "text": "Caution (Yellow card)" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 223,
+    "question": "What is the penalty for pushing an opponent with the hurley?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Order off (Red card)" },
+      { "key": "b", "text": "Note" },
+      { "key": "c", "text": "Free only" },
+      { "key": "d", "text": "Caution (Yellow card)" }
+    ],
+    "correct": "c"
+  },
+  {
+    "id": 224,
+    "question": "What is the penalty for using the hurley in a careless manner?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Order off (Red card)" },
+      { "key": "b", "text": "Note" },
+      { "key": "c", "text": "Free only" },
+      { "key": "d", "text": "Caution (Yellow card)" }
+    ],
+    "correct": "d"
+  },
+  {
+    "id": 23,
+    "question": "At a penalty the goalkeeper moves forward a metre in front of the goal-line before the ball is struck. He saves the penalty. Should the referee;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Order the penalty to be retaken" },
+      { "key": "b", "text": "Allow play continue" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 24,
+    "question": "The referee allows an advantage to a player, who is fouled approx 30 metres from goal, who carries on and, after four seconds, has a shot at goal, which strikes the post and rebounds into play. What should the Referee award?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "65m puck" },
+      { "key": "b", "text": "Play on" },
+      { "key": "c", "text": "Free puck to the attacking team at the point at which the player was fouled" },
+      { "key": "d", "text": "Free puck to the attacking team on the 20m line" }
+    ],
+    "correct": "c"
+  },
+  {
+    "id": 25,
+    "question": "If the ball accidentally strikes the physio who is treating an injured player during play must the referee;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Stop the game and award a throw-in at the point where the ball struck the physio" },
+      { "key": "b", "text": "Allow play to continue" },
+      { "key": "c", "text": "Award a free puck against the injured player's team at the point where the ball struck the physio" },
+      { "key": "d", "text": "Award a free puck to the side which played the ball last prior to it striking the physio" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 26,
+    "question": "A player who suffers an injury involving bleeding refuses to leave the field of play for attention. Must the referee;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Have a word with the team captain" },
+      { "key": "b", "text": "Caution the player (Yellow Card)" },
+      { "key": "c", "text": "Allow the doctor onto the field to attend him" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 27,
+    "question": "A player \"accidentally\" trips an opponent. What is the correct award?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Free puck only to the team of the player who was tripped" },
+      { "key": "b", "text": "Free puck and noting" },
+      { "key": "c", "text": "Play On" },
+      { "key": "d", "text": "Free puck and caution (Yellow Card)" },
+      { "key": "e", "text": "Free puck and Red Card" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 28,
+    "question": "Which of the following is not a \"free only\" infraction?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "To charge (in a manner otherwise permissible) the goalkeeper in the small rectangle" },
+      { "key": "b", "text": "To hold an opponent with the hands" },
+      { "key": "c", "text": "To push an opponent with the hands" },
+      { "key": "d", "text": "While in possession of the ball to charge an opponent" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 29,
+    "question": "A player challenges the referee's authority. Must the referee;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Order the player off (Red Card)" },
+      { "key": "b", "text": "Caution the player (Yellow Card)" },
+      { "key": "c", "text": "Note the offender" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 30,
+    "question": "Which of the following is an ordering off (Red Card) infraction?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Contribute to a melee" },
+      { "key": "b", "text": "To use the hurley in a careless manner" },
+      { "key": "c", "text": "To threaten an opponent" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 31,
+    "question": "Which of the following is a noting infraction?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "To pull down an opponent" },
+      { "key": "b", "text": "To hold an opponent with the hand" },
+      { "key": "c", "text": "To threaten a team-mate" },
+      { "key": "d", "text": "To push an opponent with the hand" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 32,
+    "question": "A player challenges the referee's authority. Must the referee;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Order off the player (Red Card)" },
+      { "key": "b", "text": "Caution the player (Yellow Card)" },
+      { "key": "c", "text": "Note the player" },
+      { "key": "d", "text": "Ignore the player" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 33,
+    "question": "A player is awarded a free puck inside the 20m line and retaliates before it is taken. What is the correct award?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "A throw in on the 20m line opposite where the foul occurs" },
+      { "key": "b", "text": "A throw in on the 13m line opposite where the foul occurs" },
+      { "key": "c", "text": "A throw in where the foul occurs" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 34,
+    "question": "If a ball accidentally strikes the referee during play must he;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Allow play to continue" },
+      { "key": "b", "text": "Stop the game and award a throw-in at the point where the ball struck him" },
+      { "key": "c", "text": "Award a free to the team which had possession" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 35,
+    "question": "For a player taking the puck out and, having missed the stroke, to take the ball into his hand a second time before striking it.",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Allow play to continue" },
+      { "key": "b", "text": "Cancel the puck out, and throw in the ball on defenders' 20m line" },
+      { "key": "c", "text": "A free is awarded from the 20m line" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 36,
+    "question": "How long may a player hold the ball in his hands?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "4 steps or no longer than the time needed to take 4 steps" },
+      { "key": "b", "text": "10 secs" },
+      { "key": "c", "text": "4 secs" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 37,
+    "question": "The correct award for pulling the faceguard of an opponent's helmet is?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Order Off (Red Card)" },
+      { "key": "b", "text": "Free only" },
+      { "key": "c", "text": "Caution (Yellow Card)" },
+      { "key": "d", "text": "Note" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 38,
+    "question": "Which of the following is not an ordering off (Red Card) infraction?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "To spit at an opponent" },
+      { "key": "b", "text": "To behave in any way which is dangerous to an opponent" },
+      { "key": "c", "text": "To kick an opponent with minimal force" },
+      { "key": "d", "text": "To use provocative language to an opponent" }
+    ],
+    "correct": "d"
+  },
+  {
+    "id": 39,
+    "question": "A defending player, inside the large rectangle but outside the small rectangle overcarries the ball. Must the referee award;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "A penalty" },
+      { "key": "b", "text": "A free puck to the attacking team from the centre of the 20m line" },
+      { "key": "c", "text": "A free puck to the attacking team from the 20m line opposite where the foul occurred" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 40,
+    "question": "A defender plays the ball before it has travelled 13m from a puck-out. Must the referee",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Cancel the puck-out and throw the ball in on the 20m line in front of the scoring space" },
+      { "key": "b", "text": "Cancel the puck-out and award a 20m free against the defender" },
+      { "key": "c", "text": "Order the puck-out to be retaken" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 41,
+    "question": "A player who fails to comply with a Referee's instruction to wear a helmet with a facial guard should be:",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Issued with a straight Red Card" },
+      { "key": "b", "text": "Warned" },
+      { "key": "c", "text": "Ignored" },
+      { "key": "d", "text": "Initially cautioned and ordered off if he persists" }
+    ],
+    "correct": "d"
+  },
+  {
+    "id": 42,
+    "question": "Which of the following are Cautionable (Yellow Card) Infractions? (Please tick all)",
+    "type": "multiple",
+    "options": [
+      { "key": "a", "text": "To pull down an opponent" },
+      { "key": "b", "text": "To charge an opponent to the back" },
+      { "key": "c", "text": "To use the hurley to obstruct an opponent" },
+      { "key": "d", "text": "To trip an opponent with the hand" },
+      { "key": "e", "text": "To spit at an opponent" },
+      { "key": "f", "text": "To engage in any other form of rough play" }
+    ],
+    "correct": ["a", "d", "f"]
+  },
+  {
+    "id": 43,
+    "question": "To take a puck out from outside the small rectangle.",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Award a 65m free" },
+      { "key": "b", "text": "Cancel the Puck out and throw in the ball on 20m line" },
+      { "key": "c", "text": "Allow play to continue" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 44,
+    "question": "A free puck is awarded to the attacking team for an Aggressive Foul inside the large rectangle. How many defending players are permitted on the goal-line?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Seven" },
+      { "key": "b", "text": "As many as the defending team wishes" },
+      { "key": "c", "text": "Five" },
+      { "key": "d", "text": "Three" },
+      { "key": "e", "text": "One" }
+    ],
+    "correct": "e"
+  },
+  {
+    "id": 45,
+    "question": "What must the referee award when a player is fouled after playing the ball which lands over the end-line?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "A free from where the ball was played" },
+      { "key": "b", "text": "A free on the 20m line opposite where the ball crossed the end-line" },
+      { "key": "c", "text": "A wide ball" },
+      { "key": "d", "text": "A free on the 20m line where the ball crossed the 20m line" }
+    ],
+    "correct": "b"
+  },
+  {
+    "id": 46,
+    "question": "What must the referee award when a player is fouled after playing the ball which lands inside the 20m line?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "A free from where the ball was played" },
+      { "key": "b", "text": "A free on the 20m line opposite where the ball landed" },
+      { "key": "c", "text": "A free on the 20m line where the ball crossed the 20m line" }
+    ],
+    "correct": "c"
+  },
+  {
+    "id": 47,
+    "question": "Which of the following scenarios result in a player being sent off (Red Card)? (Please select all).",
+    "type": "multiple",
+    "options": [
+      { "key": "a", "text": "Deliberately pulling down an opponent, having previously been cautioned (Yellow Card)" },
+      { "key": "b", "text": "Holding an opponent with the hands, having previously been cautioned (Yellow Card) for \"Rough Play\"" },
+      { "key": "c", "text": "Holding an opponent with the hands, having previously been cautioned (Yellow Card) for two \"Noting Infractions\"" },
+      { "key": "d", "text": "Kicking a team-mate" },
+      { "key": "e", "text": "Accidentally tripping an opponent, having previously been cautioned (Yellow Card)" }
+    ],
+    "correct": ["a", "c", "d"]
+  },
+  {
+    "id": 48,
+    "question": "The ball having been played by a defending player is prevented from crossing the end-line by striking an Umpire. What is the correct award?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "65m puck" },
+      { "key": "b", "text": "Play on" },
+      { "key": "c", "text": "Throw-in the ball on the 20m line" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 49,
+    "question": "What should the referee do when the ball strikes him and in so-doing is prevented from crossing the goal-line?",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Throw-in the ball on the 20m line" },
+      { "key": "b", "text": "Award a goal" },
+      { "key": "c", "text": "Allow play to continue" },
+      { "key": "d", "text": "Award a penalty" }
+    ],
+    "correct": "a"
+  },
+  {
+    "id": 50,
+    "question": "If a ball accidentally strikes the referee from a free must he;",
+    "type": "single",
+    "options": [
+      { "key": "a", "text": "Allow play to continue" },
+      { "key": "b", "text": "Stop the game and award a throw-in at the point where the ball struck him" },
+      { "key": "c", "text": "Allow the free puck to be retaken" }
+    ],
+    "correct": "c"
+  }
+]
